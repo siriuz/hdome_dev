@@ -1,0 +1,40 @@
+- name: Add Postgres Apt Keys
+  sudo: yes
+  apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc state=present
+
+- name: Add Postgres Repo
+  sudo: yes
+  apt_repository: repo='deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main'
+
+- name: Install Postgres
+  sudo: yes
+  apt: name={{item}}
+  with_items:
+     - "postgresql-{{postgres_version}}"
+     #- postgresql-server-dev
+     - "postgresql-contrib-{{postgres_version}}"
+     - python-psycopg2
+
+#- name: Add Postgres user for Django
+
+- name: postgresql should listen on all ports
+  sudo: yes
+  lineinfile: dest="/etc/postgresql/{{postgres_version}}/main/postgresql.conf"
+              regexp="^listen_addresses"
+              line="listen_addresses = '*'" state=present
+
+- name: postgresql should allow access to host
+  sudo: yes
+  copy:
+    dest: "/etc/postgresql/{{postgres_version}}/main/pg_hba.conf"
+    content: |
+      local   all   postgres   peer
+      local   all   all        peer
+      host    all   all        0.0.0.0/0   md5
+  notify: restart postgresql
+
+
+
+
+
+

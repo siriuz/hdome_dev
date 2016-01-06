@@ -1,0 +1,23 @@
+- name: Update OS
+  sudo: yes
+  apt: update_cache=yes upgrade=yes
+
+- name: Install Git
+  sudo: yes
+  apt: name=git
+
+- name: Install Python
+  sudo: yes
+  apt: name={{ item }}
+  with_items:
+    - python-pip
+    - python-virtualenv
+    - libpq-dev
+    - python-dev
+    - python-setuptools
+
+- name: Extra system dependencies
+  sudo: yes
+  apt: name={{ item }}
+  with_items:
+    - pkg-config

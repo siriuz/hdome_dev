@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - base_setup
+    - postgres_setup
+    - clone_repo
+    - django_setup

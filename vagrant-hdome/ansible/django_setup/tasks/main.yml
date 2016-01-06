@@ -1,0 +1,15 @@
+- name: Install hdome system dependencies
+  sudo: yes
+  apt: name={{  item  }}
+  with_items:
+    - python-pygraphviz
+    - graphviz-dev
+
+- name: Create virtualenv
+  command: "virtualenv {{ virtualenvs_path }}/{{ hdome_virtualenv }}" 
+  args:
+    creates: "{{ virtualenvs_path }}/{{ hdome_virtualenv }}"
+- name: Install hdome requirements.txt
+  pip:
+    requirements="{{  hdome_app_dir  }}/requirements.txt"
+    virtualenv="{{  virtualenvs_path  }}/{{  hdome_virtualenv  }}"

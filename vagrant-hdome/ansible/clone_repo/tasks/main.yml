@@ -1,0 +1,4 @@
+- name: Clone repo
+  git: repo="{{hdome_repo_url}}"
+       dest="{{hdome_app_dir}}"
+       version="{{hdome_repo_branch}}"
