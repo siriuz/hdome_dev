@@ -1,4 +1,8 @@
+- stat: path="{{ hdome_app_dir }}/.git"
+  register: hdome_app_dir_info
+
 - name: Clone repo
+  when: hdome_app_dir_info.stat.exists == False
   git: repo="{{hdome_repo_url}}"
        dest="{{hdome_app_dir}}"
        version="{{hdome_repo_branch}}"
