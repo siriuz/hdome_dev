@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>378</x>
+      <y>308</y>
+      <w>91</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>IdEstimate
+--
+ion: fk
+peptide: fk
+confidence: Float
+delta_mass: Float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>329</y>
+      <w>119</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Ptm
+--
+description: String
+mass_change: Float
+name: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>399</y>
+      <w>119</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>Peptide
+--
+mass: Float
+sequence: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>553</x>
+      <y>308</y>
+      <w>119</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>Ion
+--
+dataset: fk
+experiment: fk
+charge_state: Int
+mz: Float
+precursor_mass: Float
+retention_time: Float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>350</x>
+      <y>798</y>
+      <w>119</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Expression
+--
+allele: fk
+cell_line: fk
+expression_level: Float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>161</x>
+      <y>798</y>
+      <w>126</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Allele
+--
+gene: fk
+code: String
+description: String
+isSer: Bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>161</x>
+      <y>938</y>
+      <w>126</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Gene
+--
+description: String
+gene_class: Int
+name: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>63</x>
+      <y>238</y>
+      <w>119</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Protein
+--
+prot_id: String
+name: String
+description: String
+sequence: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>161</x>
+      <y>665</y>
+      <w>126</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>Antibody
+--
+description: String
+link: String
+name: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>532</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Experiment
+--
+cell_line: fk
+description: String
+notes: String
+title: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>798</y>
+      <w>140</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>CellLine
+--
+parent: fk (CellLine)
+description: String
+isTissue: Bool
+name: String
+tissue_type: String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>959</y>
+      <w>140</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>Individual
+--
+entity: fk
+description: String
+identifier: String
+isAnonymous: Bool
+isHost: Bool
+nation_origin: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>1127</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Entity
+--
+common_name: String
+description: String
+isOrganism: Bool
+sci_name: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1302</x>
+      <y>882</y>
+      <w>105</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>LookupCode
+--
+externaldb: fk
+protein: fk
+code: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1477</x>
+      <y>882</y>
+      <w>112</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>ExternalDb
+--
+db_name: String
+url_stump: String
+url_suffix: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>791</y>
+      <w>126</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Publication
+--
+lookupcode: one-to-one
+display: String
+journal: String
+title: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>903</x>
+      <y>301</y>
+      <w>140</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>Dataset
+--
+experiment: fk
+instrument: fk
+lodgement: fk
+confidence_cutoff: Float
+data: File
+datetime: DateTime
+dmass_cutoff: Float
+gradient_duration: Float
+gradient_max: Float
+gradient_min: Float
+notes: String
+rank: Int
+title: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>903</x>
+      <y>175</y>
+      <w>140</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>Instrument
+--
+manufacturer: fk
+description: String
+name: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>917</x>
+      <y>637</y>
+      <w>105</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Lodgement
+--
+user: fk
+datafilename: String
+datetime: DateTime
+isFree: Bool
+title: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1197</x>
+      <y>651</y>
+      <w>70</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>User</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>903</x>
+      <y>70</y>
+      <w>140</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Manufacturer
+--
+name:String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>175</x>
+      <y>336</y>
+      <w>217</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..n
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>175</x>
+      <y>357</y>
+      <w>217</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;80.0;120.0;80.0;120.0;10.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>329</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>175</x>
+      <y>280</y>
+      <w>217</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..n
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>290.0;80.0;120.0;80.0;120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>819</y>
+      <w>84</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>462</x>
+      <y>819</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>217</x>
+      <y>861</y>
+      <w>49</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=0..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>665</x>
+      <y>322</y>
+      <w>252</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>340.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>392</y>
+      <w>49</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;200.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>217</x>
+      <y>560</y>
+      <w>336</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..n
+Has &gt;</panel_attributes>
+    <additional_attributes>460.0;20.0;10.0;20.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>217</x>
+      <y>714</y>
+      <w>49</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..n
+m2=0..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>959</x>
+      <y>469</y>
+      <w>49</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;240.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>1043</y>
+      <w>49</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>875</y>
+      <w>49</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..n
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>126</x>
+      <y>0</y>
+      <w>1281</w>
+      <h>896</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;
+fg=gray
+</panel_attributes>
+    <additional_attributes>10.0;340.0;10.0;20.0;1790.0;20.0;1790.0;1260.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>644</x>
+      <y>875</y>
+      <w>672</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..n
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0;940.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>595</y>
+      <w>49</w>
+      <h>217</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;290.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
+      <y>406</y>
+      <w>245</w>
+      <h>182</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;230.0;190.0;230.0;190.0;10.0;330.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1400</x>
+      <y>896</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>959</x>
+      <y>231</y>
+      <w>49</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>959</x>
+      <y>98</y>
+      <w>49</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1015</x>
+      <y>819</y>
+      <w>301</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1
+Has &gt;</panel_attributes>
+    <additional_attributes>410.0;110.0;100.0;110.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>672</x>
+      <y>812</y>
+      <w>238</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..n
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;320.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>959</x>
+      <y>714</y>
+      <w>49</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..n
+m2=1..n
+Has &gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1015</x>
+      <y>651</y>
+      <w>196</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1..n
+&lt; Submits</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
