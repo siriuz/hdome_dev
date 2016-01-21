@@ -19,22 +19,25 @@ Examples are displayed in the blockquotes
 
 Data field identifier: **uniprot_ids**
 
-This field contains the UniProt codes identifying the Protein or Peptide.  
+This field contains the UniProt codes identifying the Protein. It is allowed to contain more than one element, delimited by ';'. Each element is parsed separately.  
 The actual UniProt ID key that is stored is the string between the '|', i.e Q9BY89 and P09230 here.  
-This key is stored in the `Protein` class under the `prot_id` attribute.  
+This key is stored as a string in the `Protein` entity under the `prot_id` attribute with each element having its own instance of `Protein`.  
 
 ### Names
 > Uncharacterized protein KIAA1671 OS=Homo sapiens GN=KIAA1671 PE=1 SV=2  
 > Alkaline extracellular protease OS=Yarrowia lipolytica (strain CLIB 122 / E 150) GN=XPR2 PE=1 SV=1  
 
 Data field identifier: **proteins**  
-This field contains the names of the Proteins  
+This field contains the names of the Proteins. This field is allowed to have multiple elements in it, delimited by ';'.  
+Each of these elements are stored as a separate `Protein`, and the string is stored in the `description` attribute.   
 
 ### Conf
 > 99.0000009536743  
 
 Data field identifier: **confidence**  
 This field contains the confidence level of the identification and is used to compare against the experiment cutoff confidence level.  
+The field is converted into a float, rounded to 5 **digits** (digits! not decimal places.)  
+This value is then stored in the `IdEstimate` entity under the `confidence` attribute as a float.
 
 ### Sequence
 > MPGLVGQEVGSGEGPR  
@@ -42,11 +45,14 @@ This field contains the confidence level of the identification and is used to co
 
 Data field identifier: **peptide_sequence"  
 This field contains the sequence of the Protein or Peptide that was identified by ProteinPilot  
+The field is not parsed in any way, and it is stored as a string in the `Peptide` class under the `sequence` attribute.
 
 ### Modifications
 > Deamidated(Q)@7  
 
 Data field identifier: **ptms**  
+This field denotes the modifications to the procedure made in the experiment.  
+As with the `protein` and `names` field, this can have multiple elements delimited by ';'. Each one is stored as a separate instance of the `Ptm` class inside the `description` field.   
 
 ### dMass
 > -0.0842337981  
