@@ -40,7 +40,7 @@ Each of these elements are stored as a separate `Protein` entity, and the string
 
 Data field identifier: **confidence**  
 This field contains the confidence level of the identification and is used to compare against the experiment cutoff confidence level.  
-The field is converted into a float, rounded to 5 **digits** (digits! not decimal places.)  
+The field is converted into a float, rounded to 5 decimal places
 This value is then stored in the `IdEstimate` entity under the `confidence` attribute as a float.
 
 
@@ -66,7 +66,7 @@ As with the `protein` and `names` field, this can have multiple elements delimit
 > -0.1522669941  
 
 Data field identifier: **delta_mass** 
-This field may not contain multiple elements. It is converted into a float then rounded to 5 **digits** (digits! not decimal places.)  
+This field may not contain multiple elements. It is converted into a float then rounded to 5 decimal places 
 This value is then stored in the `Ion` entity, in the `delta_mass` attribute as a float.  
 
 
@@ -75,7 +75,7 @@ This value is then stored in the `Ion` entity, in the `delta_mass` attribute as 
 > 4810.4985351563  
 
 Data field identifier: **precursor_mass**  
-This field may not contain multiple elements. It is converted into a float then rounded to 5 **digits** (digits! not decimal places.)  
+This field may not contain multiple elements. It is converted into a float then rounded to 5 decimal places 
 This value is then stored in the `IdEstimate` entity, in the `precursor_mass` attribute as a float.  
 
 
@@ -84,7 +84,7 @@ This value is then stored in the `IdEstimate` entity, in the `precursor_mass` at
 > 1203.632  
 
 Data field identifier: **mz**  
-This field may not contain multiple elements. It is converted into a float then rounded to 5 **digits** (digits! not decimal places.)  
+This field may not contain multiple elements. It is converted into a float then rounded to 5 decimal places 
 This value is then stored in the `Ion` entity, in the `mz` attribute as a float.  
 
 
@@ -110,4 +110,4 @@ The whole field is also imported as a string to populate the `spectrum` attribut
 > 47.3058  
 
 Data field identifier: **retention_time**  
-This field is NOT rounded to 5 digits! It is imported straight into the `retention_time` field in `Ion`.
+This field is NOT rounded to 5 decimal places! It is imported straight into the `retention_time` field in `Ion`.
